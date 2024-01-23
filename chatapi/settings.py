@@ -91,6 +91,8 @@ TEMPLATES = [
     },
 ]
 
+ASGI_APPLICATION = "chatapi.asgi.application"
+
 WSGI_APPLICATION = "chatapi.wsgi.application"
 
 
@@ -158,4 +160,13 @@ REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": [
         "rest_framework.authentication.TokenAuthentication",
     ],
+}
+
+CHANNELS_LAYERS = {
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [("127.0.0.1", 6379)],
+        },
+    }
 }

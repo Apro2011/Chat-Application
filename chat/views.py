@@ -10,7 +10,7 @@ from django.urls import reverse
 
 
 # Create your views here.
-@api_view["POST"]
+@api_view(["POST"])
 def start_convo(
     request,
 ):
